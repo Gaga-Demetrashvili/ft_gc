@@ -6,7 +6,7 @@
 /*   By: gdemetra <gdemetra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 18:35:51 by gdemetra          #+#    #+#             */
-/*   Updated: 2025/08/30 23:43:36 by gdemetra         ###   ########.fr       */
+/*   Updated: 2025/08/31 19:56:37 by gdemetra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	*gc_malloc(size_t size)
 
 void	gc_free(void *ptr)
 {
-	t_gc *gc;
-	t_gc_node *prev;
-	t_gc_node *curr;
+	t_gc		*gc;
+	t_gc_node	*prev;
+	t_gc_node	*curr;
 
 	prev = NULL;
 	gc = ft_gc();
