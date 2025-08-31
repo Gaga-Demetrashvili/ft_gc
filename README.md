@@ -1,20 +1,35 @@
 # ft_gc
-Garbage Collector simulation for C programs
+*A simple garbage collector simulation for C programs.*
 
-Basically what I did is just to create for malloc a wrapper function, which allocates memory with malloc for the pointer requested,
-saves that pointer in a newly allocated linked list node and returns that pointer back to user. New allocattions are added to the 
-node list in front so that in case of array and it's members at first members are freed and then array itself.
+---
 
-Usage:
-Before starting using "gc_malloc" function, call "init_gc(malloc(sizeof(t_gc)))" so t_gc struct was created. It is needed for 
-function internally to work.
+## ✨ Overview
+`ft_gc` provides a wrapper around `malloc` that automatically tracks all allocated pointers in a linked list.  
+This allows you to free everything at once, or free specific allocations when needed.  
+It’s useful for preventing memory leaks in C projects (e.g., 42 school exercises).
 
-When you call "gc_malloc" just pass size of the memory you want to allocate (e.g. if you want to create an array of five integers 
-"int *arr = gc_malloc(5 * sizeof(int))").
+---
 
-At the end of the program you can call "gc_free_all" and all the memory allocated with "gc_malloc" will be freed.
+## ⚙️ How It Works
+- Every call to `gc_malloc(size)`:
+  - Allocates memory using `malloc`.
+  - Stores the pointer in a linked list of tracked allocations.
+  - Returns the pointer back to the user.
 
-There is an option to free specific pointer allocated with "gc_malloc". If you will need that case use "gc_free" and
-pass the pointer you want to free.
+- When freeing:
+  - `gc_free_all()` frees **all allocations** tracked by the GC.
+  - `gc_free(ptr)` frees a **specific pointer** and removes it from the list.
 
-Threre is also commented main function in the repo in case you want to test your cases.
+- Allocations are tracked in a **stack-like order** (last allocated → freed first),  
+  which ensures that in cases like arrays + members, the members are freed before the array itself.
+
+---
+
+## 🚀 Usage
+
+### 1. Initialize the GC
+Before using `gc_malloc`, you must create the GC context:
+
+```c
+t_gc *gc = malloc(sizeof(t_gc));
+init_gc(gc);
