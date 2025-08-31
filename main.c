@@ -6,7 +6,7 @@
 /*   By: gdemetra <gdemetra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 23:20:18 by gdemetra          #+#    #+#             */
-/*   Updated: 2025/08/31 19:57:08 by gdemetra         ###   ########.fr       */
+/*   Updated: 2025/08/31 20:04:36 by gdemetra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,5 @@
 // 	gc_free_all();
 
 // 	printf("All done! Use valgrind to check for leaks.\n");
-// 	free(ft_gc());
 // 	return (0);
 // }
