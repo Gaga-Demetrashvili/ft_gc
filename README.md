@@ -31,5 +31,4 @@ It’s useful for preventing memory leaks in C projects (e.g., 42 school exercis
 Before using `gc_malloc`, you must create the GC context:
 
 ```c
-t_gc *gc = malloc(sizeof(t_gc));
-init_gc(gc);
+init_gc(malloc(sizeof(t_gc)));
